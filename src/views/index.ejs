@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>El Baúl - Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .categoria-box {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+    }
+    .categoria-box:hover {
+      background-color: #f8f9fa;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">ElBaúl</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/foro">Comunidad</a></li>
+
+        <% if (session.usuario) { %>
+            <li class="nav-item"><a class="nav-link text-danger" href="/cerrar-sesion">Cerrar Sesión</a></li>
+        <% } else { %>
+            <li class="nav-item"><a class="nav-link" href="/iniciar-sesion">Iniciar Sesión</a></li>
+        <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <% if (session.usuario) { %>
+    <div class="alert alert-success text-center rounded-0">
+        👋 Bienvenido, <%= session.usuario %>
+    </div>
+    <% } %>
+
+
+  <!-- HERO -->
+  <header class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Bienvenido a ElBaúl</h1>
+      <p class="lead">La mejor plataforma de productos de segunda mano en Perú</p>
+      <a href="/productos" class="btn btn-light btn-lg">Ver Productos</a>
+      <a href="/foro" class="btn btn-outline-light btn-lg ms-2">Ver Comunidad</a>
+    </div>
+  </header>
+
+  <!-- CATEGORÍAS -->
+  <section class="container my-5">
+    <h2 class="mb-4">Categorías</h2>
+    <div class="row g-4">
+      <% const categorias = [
+        'Arte y Antigüedades', 'Bebés y Niños', 'Coleccionables', 'Computación',
+        'Consolas y Videojuegos', 'Deportes y Fitness', 'Electrodomésticos', 'Fotografía',
+        'Herramientas', 'Hogar y Cocina', 'Instrumentos Musicales', 'Juguetes y Juegos',
+        'Libros y Música', 'Muebles y Decoración', 'Ropa y Zapatos'
+      ]; %>
+
+      <% categorias.forEach(categoria => { %>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="categoria-box">
+            <!-- Aquí podrías mostrar una imagen si la tienes -->
+            <!-- <img src="/img/categorias/ropa.png" class="img-fluid mb-2" alt="..."> -->
+            <strong><%= categoria %></strong>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
