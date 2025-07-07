@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Productos - El Baúl</title>
+</head>
+<body>
+  <h2>Registrar Producto</h2>
+  <form action="/productos/crear" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required />
+    <input type="text" name="descripcion" placeholder="Descripción" />
+    <input type="number" name="precio" placeholder="Precio" />
+    <button type="submit">Registrar</button>
+  </form>
+
+  <h2>Lista de Productos</h2>
+  <table>
+    <tr><th>Nombre</th><th>Precio</th><th>Acciones</th></tr>
+    <% productos.forEach(p => { %>
+      <tr>
+        <td><%= p.nombre %></td>
+        <td><%= p.precio %></td>
+        <td>
+          <form action="/productos/editar/<%= p._id %>" method="POST">
+            <input type="text" name="nombre" value="<%= p.nombre %>" />
+            <button type="submit">Editar</button>
+          </form>
+          <a href="/productos/eliminar/<%= p._id %>">Eliminar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
