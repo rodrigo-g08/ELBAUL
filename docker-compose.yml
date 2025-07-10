@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: elbaul_db_dev
+    image: mongo:6.0
+    restart: unless-stopped
+    ports:
+      - "27020:27017"
+    volumes:
+      - mongodb_data_dev:/data/db
+      - mongodb_config_dev:/data/configdb
+    environment:
+      - MONGO_INITDB_DATABASE=elbaul_db
+    command: ["mongod", "--bind_ip_all"]
+
+volumes:
+  mongodb_data_dev:
+    driver: local
+  mongodb_config_dev:
+    driver: local

@@ -1,0 +1,12 @@
+[
+  {
+    "correo": "renzo.barrios@gmail.com",
+    "contrasena": "$2b$10$xZIHb5wUS.jbAm1y9tNDfeTfcPgxNYfQqIJ3o.tB9v1kFVjZW3VCy",
+    "rol": "admin"
+  },
+  {
+    "correo": "cmendoza@gmail.com",
+    "contrasena": "$2b$10$l9AU550X6NQphsQ0sk7vueNCRfHJKDzuLpjqPhoLU4sBoEdcClrDO",
+    "rol": "cliente"
+  }
+]

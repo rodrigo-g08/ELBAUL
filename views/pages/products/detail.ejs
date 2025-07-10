@@ -1,0 +1,139 @@
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="py-3">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detalle del Producto</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- Product Detail Container -->
+<div class="container py-4">
+    <div id="product-container">
+        <!-- Loading state -->
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando producto...</span>
+            </div>
+            <p class="mt-2">Cargando detalles del producto...</p>
+        </div>
+    </div>
+</div>
+
+<!-- Related Products Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-4">Productos Relacionados</h3>
+            <div id="related-products" class="row">
+                <!-- Related products will be loaded here -->
+                <div class="col-12 text-center">
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="visually-hidden">Cargando productos relacionados...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS for product detail -->
+<style>
+/* Product Images */
+.main-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.product-thumbnail {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-thumbnail:hover,
+.product-thumbnail.active {
+    border-color: var(--bs-primary);
+    transform: scale(1.05);
+}
+
+/* Rating Input */
+.rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.1rem;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #ddd;
+    transition: color 0.2s;
+}
+
+.rating-input input:checked ~ label,
+.rating-input label:hover,
+.rating-input label:hover ~ label {
+    color: #ffc107;
+}
+
+/* Stars Display */
+.stars {
+    color: #ffc107;
+}
+
+/* Product Card */
+.product-card {
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Quantity Controls */
+.quantity-btn {
+    width: 40px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reviews */
+.review-item:last-child {
+    border-bottom: none !important;
+}
+
+.reviews-stats .rating-display {
+    text-align: center;
+}
+
+/* Badge improvements */
+.badge {
+    font-size: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-image-container img {
+        height: 300px !important;
+    }
+    
+    .thumbnail-images img {
+        height: 60px !important;
+    }
+    
+    .rating-input label {
+        font-size: 1.2rem;
+    }
+}
+</style>
